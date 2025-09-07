@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-wallet"></i> AI-Powered Expense Tracker</h1>
+            <p>Track, analyze, and optimize your spending with AI assistance</p>
+        </header>
+
+        <main>
+            <section class="expense-input">
+                <h2>Add New Expense</h2>
+                <form id="expense-form">
+                    <div class="form-group">
+                        <label for="expense-amount">Amount ($)</label>
+                        <input type="number" id="expense-amount" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expense-description">Description</label>
+                        <input type="text" id="expense-description" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expense-date">Date</label>
+                        <input type="date" id="expense-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expense-category">Category (Optional)</label>
+                        <select id="expense-category">
+                            <option value="">Let AI categorize</option>
+                            <option value="Food">Food</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Housing">Housing</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Education">Education</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bill-upload">Upload Receipt (Optional)</label>
+                        <input type="file" id="bill-upload" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn-primary">Add Expense</button>
+                </form>
+            </section>
+
+            <section class="expense-summary">
+                <h2>Expense Summary</h2>
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Total Expenses</h3>
+                        <p id="total-expenses">$0.00</p>
+                    </div>
+                    <div class="card">
+                        <h3>This Month</h3>
+                        <p id="month-expenses">$0.00</p>
+                    </div>
+                    <div class="card">
+                        <h3>Top Category</h3>
+                        <p id="top-category">N/A</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="expense-analytics">
+                <h2>Spending Analytics</h2>
+                <div class="chart-container">
+                    <canvas id="category-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="trend-chart"></canvas>
+                </div>
+            </section>
+
+            <section class="expense-list">
+                <h2>Recent Expenses</h2>
+                <div class="filter-controls">
+                    <input type="text" id="search-expenses" placeholder="Search expenses...">
+                    <select id="filter-category">
+                        <option value="">All Categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Education">Education</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <table id="expenses-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expenses-list">
+                        <!-- Expenses will be added here dynamically -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="ai-insights">
+                <h2>AI Insights</h2>
+                <div class="insights-container" id="ai-insights-container">
+                    <p class="no-insights">Add expenses to get AI-powered insights about your spending habits.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 AI-Powered Expense Tracker | Created for better financial management</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
